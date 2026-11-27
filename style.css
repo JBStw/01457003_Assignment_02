@@ -7,13 +7,19 @@ nav {
     height: 10vh;
     width: 100%;
     overflow-x: hidden;
-    flex-direction: column;
 }
 
 header {
     display: flex;
+    background-color: antiquewhite;
     height: 20vh;
-    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header>img {
+    max-width: 70px;
 }
 
 .page {
@@ -30,5 +36,28 @@ header {
     height: 80vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+
+
+/*以下是所有按鈕設計*/
+#enter_shopping_page_btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 12px;
+    background-color: #1f0f4f;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    cursor: pointer;
+}
+#enter_shopping_page_btn:hover {
+  background-color: #5a3284;
+}
