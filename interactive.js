@@ -4,8 +4,20 @@ const default_page = document.getElementById("default_page");
 const shopping_page = document.getElementById("shopping_page");
 const nav = document.querySelector("nav");
 const view_cart_items = document.getElementById("view_cart_items");
+const user_cart_items_page = document.getElementById("user_cart_items_page");
 
-price_num = 0;
+let price_num = 0;
+let is_item_in_shopping_car = [];
+for (const item of items_data) {
+    if(item.in_user_shopping_car > 0) {
+        is_item_in_shopping_car.push(1);
+        user_cart_items_page.append(create_cart_item(is_item_in_shopping_car.length-1));
+    } else {
+        is_item_in_shopping_car.push(0);
+    }
+}
+calculate_total();
+
 /*進入採購*/
 enter_shopping_page_btn.addEventListener('click', function (event) {
     header.style.display = "none";
@@ -22,8 +34,7 @@ const drone_groop = document.getElementById("drone_groop");
 const items_page_class = document.querySelectorAll(".items_page");
 
 const cart_items_btn = document.getElementById("cart_items_btn");
-const user_cart_items_page = document.getElementById("user_cart_items_page");
-const total_price = document.getElementById("total_price");
+
 const total_price_state = document.getElementById("total_price_state");
 /*商品分頁*/
 const normal_car_btn = document.getElementById("normal_car_btn");
@@ -70,9 +81,11 @@ cart_items_btn.addEventListener("click", function (event) {
     if (shopping_page.style.display=="flex") {
         shopping_page.style.display = "none";
         view_cart_items.style.display = "flex";
+        user_cart_items_page.style.display = "flex";
         total_price_state.textContent = "(按一下返回)";
     } else {
         shopping_page.style.display = "flex";
+        user_cart_items_page.style.display = "none";
         total_price_state.textContent = "查看清單";
     }
 })
@@ -113,4 +126,12 @@ buy_single_item_btns.forEach((btn, index) => {
         put_to_shopping_car(index);
     });
   }
+});
+
+/*refresh功能*/
+const refresh_btn = document.getElementById("refresh_btn");
+refresh_btn.addEventListener("click", function (event) {
+    refresh_all_data();
+    calculate_total();
+    saveData();
 });
