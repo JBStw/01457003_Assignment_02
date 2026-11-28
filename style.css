@@ -7,6 +7,11 @@ nav {
     height: 10vh;
     width: 100%;
     overflow-x: hidden;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: #1f2937;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
 }
 
 header {
@@ -25,10 +30,9 @@ header>img {
 .page {
     display: none;
     width: 100%;
-    min-height: 80vh;
+    min-height: 90vh;
     overflow-x: hidden;
     box-sizing: border-box;
-
     flex-direction: column;
 }
 
@@ -40,7 +44,35 @@ header>img {
     align-items: center;
 }
 
+#view_cart_items {
+    display: none;    /*載入後才顯示*/
+    height: 10vh;
+    min-width: 15%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    z-index: 999;
+    overflow: hidden;
+}
 
+#cart_items_btn>img {
+    height: 36px;
+}
+
+#total_price {
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+#total_price_state {
+    color: rgb(94, 72, 72);
+    font-size: 18px;
+    font-weight: 700;
+    white-space: nowrap;
+}
 
 /*以下是所有按鈕設計*/
 #enter_shopping_page_btn {
@@ -61,3 +93,36 @@ header>img {
 #enter_shopping_page_btn:hover {
   background-color: #5a3284;
 }
+
+nav>button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 999px;
+    background-color: transparent;
+    color: #d1d5db;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+nav>button:hover {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+#cart_items_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    border: none;
+    border-radius: 999px;
+    background-color: #fae76f;
+    color: #111827;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#cart_items_btn:hover {
+    transform: translateY(-3px);
+}
+

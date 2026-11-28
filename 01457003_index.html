@@ -11,16 +11,32 @@
         <img src="./picture/header_pic.webp" alt="pic">
         <h2>遙控車零售商</h2>
     </header>
-    <nav></nav>
+    <nav>
+        <button id="normal_car_btn">普通遙控車</button>
+        <button id="sports_car_btn">跑車遙控車</button>
+        <button id="airplain_btn">遙控飛機</button>
+        <button id="drone_btn">無人機</button>
+    </nav>
     <main>
         <div id="default_page" class="page">
             <button id="enter_shopping_page_btn">進入採購</button>
         </div>
-        <div id="shopping_page" class="page"></div>
+        <div id="shopping_page" class="page">
+            <div id="normal_car_groop" class="items_page"></div>
+            <div id="sports_car_groop" class="items_page"></div>
+            <div id="airplain_groop" class="items_page"></div>
+            <div id="drone_groop" class="items_page"></div>
+        </div>
         <div id="user_cart_items_page" class="page"></div>
         <div id="checkout_page" class="page"></div>
     </main>
-    <footer id="view_cart_items"></footer>
+    <div id="view_cart_items">
+        <button id="cart_items_btn">
+            <span id="total_price_state">查看清單</span>
+            <img src="./picture/shopping_car.png">
+            <span id="total_price">$0</span>
+        </button>
+    </div>
     <script src="functional.js"></script>
     <script src="interactive.js"></script>
 </body>
