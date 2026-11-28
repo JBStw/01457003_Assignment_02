@@ -76,3 +76,4 @@ cart_items_btn.addEventListener("click", function (event) {
         total_price_state.textContent = "查看清單";
     }
 })
+
