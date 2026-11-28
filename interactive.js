@@ -6,7 +6,7 @@ const nav = document.querySelector("nav");
 const view_cart_items = document.getElementById("view_cart_items");
 
 price_num = 0;
-
+/*進入採購*/
 enter_shopping_page_btn.addEventListener('click', function (event) {
     header.style.display = "none";
     default_page.style.display = "none";
@@ -25,7 +25,7 @@ const cart_items_btn = document.getElementById("cart_items_btn");
 const user_cart_items_page = document.getElementById("user_cart_items_page");
 const total_price = document.getElementById("total_price");
 const total_price_state = document.getElementById("total_price_state");
-
+/*商品分頁*/
 const normal_car_btn = document.getElementById("normal_car_btn");
 normal_car_btn.addEventListener("click", function (event) {
     for(const page of items_page_class) {
@@ -65,7 +65,7 @@ drone_btn.addEventListener("click", function (event) {
     shopping_page.style.display = "flex";
     total_price_state.textContent = "查看清單";
 });
-
+/*查看購物車*/
 cart_items_btn.addEventListener("click", function (event) {
     if (shopping_page.style.display=="flex") {
         shopping_page.style.display = "none";
@@ -76,4 +76,41 @@ cart_items_btn.addEventListener("click", function (event) {
         total_price_state.textContent = "查看清單";
     }
 })
+/*商品+-細項處理*/
+const minus_btns = [];
+const add_btns = [];
+const select_nums = [];
+const stocks = [];
+const buy_single_item_btns = [];
 
+for (let i = 1; i <= items_data.length; i++) {
+    minus_btns.push(document.getElementById("item" + i + "_minus"));
+    add_btns.push(document.getElementById("item" + i + "_add"));
+    select_nums.push(document.getElementById("item" + i + "_select_num"));
+    stocks.push(document.getElementById("item" + i + "_stock"));
+    buy_single_item_btns.push(document.getElementById("item" + i + "_buy"));
+};
+
+minus_btns.forEach((btn, index) => {
+  if (btn) {
+    btn.addEventListener("click", () => {
+        minus_btns_dealing(index);
+    });
+  }
+});
+
+add_btns.forEach((btn, index) => {
+  if (btn) {
+    btn.addEventListener("click", () => {
+        add_btns_dealing(index);
+    });
+  }
+});
+
+buy_single_item_btns.forEach((btn, index) => {
+  if (btn) {
+    btn.addEventListener("click", () => {
+        put_to_shopping_car(index);
+    });
+  }
+});
