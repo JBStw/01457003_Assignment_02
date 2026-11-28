@@ -45,6 +45,7 @@ normal_car_btn.addEventListener("click", function (event) {
     normal_car_groop.style.display = "flex";
     shopping_page.style.display = "flex";
     total_price_state.textContent = "查看清單";
+    item_explain_container.style.visibility = "hidden";
 });
 
 const sports_car_btn = document.getElementById("sports_car_btn");
@@ -55,6 +56,7 @@ sports_car_btn.addEventListener("click", function (event) {
     sports_car_groop.style.display = "flex";
     shopping_page.style.display = "flex";
     total_price_state.textContent = "查看清單";
+    item_explain_container.style.visibility = "hidden";
 });
 
 const airplain_btn = document.getElementById("airplain_btn");
@@ -65,6 +67,7 @@ airplain_btn.addEventListener("click", function (event) {
     airplain_groop.style.display = "flex";
     shopping_page.style.display = "flex";
     total_price_state.textContent = "查看清單";
+    item_explain_container.style.visibility = "hidden";
 });
 
 const drone_btn = document.getElementById("drone_btn");
@@ -75,9 +78,11 @@ drone_btn.addEventListener("click", function (event) {
     drone_groop.style.display = "flex";
     shopping_page.style.display = "flex";
     total_price_state.textContent = "查看清單";
+    item_explain_container.style.visibility = "hidden";
 });
 /*查看購物車*/
 cart_items_btn.addEventListener("click", function (event) {
+    item_explain_container.style.visibility = "hidden";
     if (shopping_page.style.display=="flex") {
         shopping_page.style.display = "none";
         view_cart_items.style.display = "flex";
@@ -96,12 +101,15 @@ const select_nums = [];
 const stocks = [];
 const buy_single_item_btns = [];
 
+const pictures = [];
+
 for (let i = 1; i <= items_data.length; i++) {
     minus_btns.push(document.getElementById("item" + i + "_minus"));
     add_btns.push(document.getElementById("item" + i + "_add"));
     select_nums.push(document.getElementById("item" + i + "_select_num"));
     stocks.push(document.getElementById("item" + i + "_stock"));
     buy_single_item_btns.push(document.getElementById("item" + i + "_buy"));
+    pictures.push(document.getElementById("item" + i + "_pic"));
 };
 
 minus_btns.forEach((btn, index) => {
@@ -134,4 +142,21 @@ refresh_btn.addEventListener("click", function (event) {
     refresh_all_data();
     calculate_total();
     saveData();
+    item_explain_container.style.visibility = "hidden";
+});
+
+/*點擊圖片顯示產品介紹*/
+const item_explain_container = document.getElementById("item_explain_container");
+const item_explain = document.getElementById("item_explain");
+pictures.forEach(function (img, index) {
+    img.style.cursor = "pointer";
+    img.addEventListener("click", function () {
+        const item = items_data[index];
+        item_explain.textContent = item.name + "\n" + item.description + "\n(再點我一下消失)";
+        item_explain_container.style.visibility = "visible";
+    });
+});
+
+item_explain_container.addEventListener("click", function(event) {
+    item_explain_container.style.visibility = "hidden";
 });
