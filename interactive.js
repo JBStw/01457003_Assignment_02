@@ -21,12 +21,19 @@ const airplain_groop = document.getElementById("airplain_groop");
 const drone_groop = document.getElementById("drone_groop");
 const items_page_class = document.querySelectorAll(".items_page");
 
+const cart_items_btn = document.getElementById("cart_items_btn");
+const user_cart_items_page = document.getElementById("user_cart_items_page");
+const total_price = document.getElementById("total_price");
+const total_price_state = document.getElementById("total_price_state");
+
 const normal_car_btn = document.getElementById("normal_car_btn");
 normal_car_btn.addEventListener("click", function (event) {
     for(const page of items_page_class) {
         page.style.display = "none";
     }
     normal_car_groop.style.display = "flex";
+    shopping_page.style.display = "flex";
+    total_price_state.textContent = "查看清單";
 });
 
 const sports_car_btn = document.getElementById("sports_car_btn");
@@ -34,7 +41,9 @@ sports_car_btn.addEventListener("click", function (event) {
     for(const page of items_page_class) {
         page.style.display = "none";
     }
-    sports_car_btn.style.display = "flex";
+    sports_car_groop.style.display = "flex";
+    shopping_page.style.display = "flex";
+    total_price_state.textContent = "查看清單";
 });
 
 const airplain_btn = document.getElementById("airplain_btn");
@@ -42,7 +51,9 @@ airplain_btn.addEventListener("click", function (event) {
     for(const page of items_page_class) {
         page.style.display = "none";
     }
-    airplain_btn.style.display = "flex";
+    airplain_groop.style.display = "flex";
+    shopping_page.style.display = "flex";
+    total_price_state.textContent = "查看清單";
 });
 
 const drone_btn = document.getElementById("drone_btn");
@@ -50,13 +61,11 @@ drone_btn.addEventListener("click", function (event) {
     for(const page of items_page_class) {
         page.style.display = "none";
     }
-    drone_btn.style.display = "flex";
+    drone_groop.style.display = "flex";
+    shopping_page.style.display = "flex";
+    total_price_state.textContent = "查看清單";
 });
 
-const cart_items_btn = document.getElementById("cart_items_btn");
-const user_cart_items_page = document.getElementById("user_cart_items_page");
-const total_price = document.getElementById("total_price");
-const total_price_state = document.getElementById("total_price_state");
 cart_items_btn.addEventListener("click", function (event) {
     if (shopping_page.style.display=="flex") {
         shopping_page.style.display = "none";

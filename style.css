@@ -39,7 +39,8 @@ header>img {
 }
 
 #default_page {  /*預設網頁一進來就是在這一頁*/
-    height: 80vh;
+    height: 50vh;
+    min-height: none;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,6 +83,7 @@ header>img {
     justify-content: center;
     align-items: center;
     width: 90%;
+    gap: 20px;
     overflow: hidden;
 }
 
@@ -96,6 +98,7 @@ header>img {
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
     justify-content: center;
     align-items: center;
+    margin: 15px;
 }
 
 .single_item_detail {
