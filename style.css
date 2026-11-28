@@ -34,6 +34,8 @@ header>img {
     overflow-x: hidden;
     box-sizing: border-box;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #default_page {  /*預設網頁一進來就是在這一頁*/
@@ -72,6 +74,89 @@ header>img {
     font-size: 18px;
     font-weight: 700;
     white-space: nowrap;
+}
+
+#normal_car_groop, #sports_car_groop, #airplain_groop, #drone_groop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    overflow: hidden;
+}
+
+.single_item {
+    display: flex;
+    width: 80%;
+    height: 45vh;
+    gap: 20vh;
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+    align-items: center;
+}
+
+.single_item_detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.single_item>img {
+    height: 40vh;
+    object-fit: contain;
+    background-color: #f3f4f6;
+}
+
+.single_item_detail>p {
+    margin: 0;
+}
+
+.single_item_detail > p:first-child {
+    font-size: 20px;
+    font-weight: 700;
+    color: #111827;
+}
+
+.single_item_detail > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.single_item_detail > div p {
+    min-width: 32px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.single_item_detail > div button {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background-color: #e5e7eb;
+    color: #111827;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+}
+/*商品加減的btn*/
+.single_item_detail > div button:hover {
+    background-color: #d1d5db;
+    transform: scale(1.1);
+}
+
+.single_item_detail > p:last-child {
+    font-size: 14px;
+    color: #6b7280;
 }
 
 /*以下是所有按鈕設計*/
@@ -126,3 +211,26 @@ nav>button:hover {
     transform: translateY(-3px);
 }
 
+.single_item_detail > button {
+    width: 100%;
+    padding: 10px 0;
+    border: none;
+    border-radius: 999px;
+    background-color: #f59e0b;
+    color: #111827;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.single_item_detail > button:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+}
+/*庫存=0時顯示sold out的CSS*/
+.single_item_detail > button:disabled {
+    background-color: #9ca3af;
+    color: #4b5563;
+    cursor: not-allowed;
+    transform: none;
+}

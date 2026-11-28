@@ -19,29 +19,37 @@ const normal_car_groop = document.getElementById("normal_car_groop");
 const sports_car_groop = document.getElementById("sports_car_groop");
 const airplain_groop = document.getElementById("airplain_groop");
 const drone_groop = document.getElementById("drone_groop");
-const items_page_class = document.querySelector(".items_page");
+const items_page_class = document.querySelectorAll(".items_page");
 
 const normal_car_btn = document.getElementById("normal_car_btn");
 normal_car_btn.addEventListener("click", function (event) {
-    items_page_class.style.display = "none";
+    for(const page of items_page_class) {
+        page.style.display = "none";
+    }
     normal_car_groop.style.display = "flex";
 });
 
 const sports_car_btn = document.getElementById("sports_car_btn");
-normal_car_btn.addEventListener("click", function (event) {
-    items_page_class.style.display = "none";
+sports_car_btn.addEventListener("click", function (event) {
+    for(const page of items_page_class) {
+        page.style.display = "none";
+    }
     sports_car_btn.style.display = "flex";
 });
 
-const airplain_btn = document.getElementById("sports_car_btn");
-normal_car_btn.addEventListener("click", function (event) {
-    items_page_class.style.display = "none";
+const airplain_btn = document.getElementById("airplain_btn");
+airplain_btn.addEventListener("click", function (event) {
+    for(const page of items_page_class) {
+        page.style.display = "none";
+    }
     airplain_btn.style.display = "flex";
 });
 
-const drone_btn = document.getElementById("sports_car_btn");
-normal_car_btn.addEventListener("click", function (event) {
-    items_page_class.style.display = "none";
+const drone_btn = document.getElementById("drone_btn");
+drone_btn.addEventListener("click", function (event) {
+    for(const page of items_page_class) {
+        page.style.display = "none";
+    }
     drone_btn.style.display = "flex";
 });
 
